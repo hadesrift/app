@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+      <h1 class="title">Hello World! </h1>
+      <p id="currentTime"></p>
+      <script src="script.js"></script>
+  </body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HadesRift Tech & Tutorial</title>
+    <style>
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Custom Minecraft Pickaxe Cursor */
+        body {
+            font-family: 'Press Start 2P', cursive; /* Gaming pixelated font */
+            height: 100vh;
+            overflow: hidden;
+            background: #000;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            cursor: url('https://i.imgur.com/wzK6bls.png'), auto; /* Minecraft pickaxe cursor */
+        }
+
+        /* Animated Minecraft-like background */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.imgur.com/HTOHwIM.png') repeat; /* Minecraft terrain background */
+            z-index: -1;
+            animation: moveBackground 30s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes moveBackground {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 5000px 0;
+            }
+        }
+
+        /* Container for tips and tutorials */
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        /* Button styling */
+        button {
+            padding: 15px 30px;
+            background-color: #ff0055;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff3366;
+            transform: scale(1.05);
+        }
+
+        /* Tip and tutorial display box */
+        .info-box {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        /* Button animations for switching between tips, tech, and tutorials */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .info-box {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        /* Importing pixelated gaming font */
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>HadesRift Tech & Tutorial</h1>
+
+        <!-- Buttons to switch between sections -->
+        <button onclick="showContent('tips')">Tips</button>
+        <button onclick="showContent('tech')">Tech</button>
+        <button onclick="showContent('tutorial')">Tutorials</button>
+
+        <!-- Information display area -->
+        <div id="content" class="info-box">
+            Welcome to the HadesRift Tech & Tutorial app! Click the buttons above to view tips, tech insights, and tutorials.
+        </div>
+    </div>
+
+    <script>
+        // Content for each section
+        const contentData = {
+            tips: "Tip: Consistency is the key to mastering coding. Try to code daily, even if it's just for 30 minutes!",
+            tech: "Tech Insight: Did you know? The world's first mechanical computer, known as the 'Difference Engine,' was designed in 1822 by Charles Babbage.",
+            tutorial: "Tutorial: Let's start with HTML basics. The <html> tag is used to define the structure of a webpage, and within it, you use <head> for metadata and <body> for visible content."
+        };
+
+        // Function to display content based on the clicked button
+        function showContent(section) {
+            const contentBox = document.getElementById('content');
+            contentBox.textContent = contentData[section];
+        }
+    </script>
+
+</body>
+</html>
